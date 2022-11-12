@@ -1,0 +1,22 @@
+{
+  "name": "isit320-kittycombos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lori-L/ISIT320-KittyCombos.git"
+  },
+  "author": "Gabriel Blake",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lori-L/ISIT320-KittyCombos/issues"
+  },
+  "homepage": "https://github.com/Lori-L/ISIT320-KittyCombos#readme",
+  "dependencies": {
+    "pg": "^8.8.0"
+  }
+}
