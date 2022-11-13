@@ -1,0 +1,121 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+#gameplay-canvas {
+  border: 2px solid black;
+}
+
+#grid {
+  height: 576px;
+  width: 576px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: black;
+}
+
+#grid img {
+  height: 70px;
+  width: 70px;
+  border: 1px solid black;
+}
+
+/* Page formatting */
+
+#page {
+  margin: auto;
+  max-width: 650px;
+  height: 100%;
+}
+
+#left-panel {
+  float: left;
+  width: 0%;
+  height: 100%;
+}
+
+#mid-panel {
+  float: left;
+  width: 50%;
+}
+
+#right-panel {
+  float: right;
+  width: 0%;
+  height: 100%;
+}
+
+#gameplay {
+  display: block;
+}
+
+#leaderboard {
+  display: none;
+}
+
+/* Making the CSS "Pretty" */
+#start {
+  background-color: #4caf50;
+  border: solid 2px white;
+  color: white;
+  padding: 15px 60px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  /* Move to middle of "canvas" */
+  position: relative;
+  left: 207px;
+  bottom: 300px;
+}
+
+#start:hover {
+  background-color: gray;
+  border: solid 4px white;
+  color: white;
+  padding: 15px 60px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  /* Move to middle of "canvas" */
+  position: relative;
+  left: 206px;
+  bottom: 299px;
+}
+
+#restart {
+  display: none;
+}
+
+#redirect-leaderboard {
+  background-color: blue;
+  border: solid 2px white;
+  color: white;
+  padding: 15px 60px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  /* Move below start */
+  position: relative;
+  left: 180px;
+  bottom: 300px;
+}
+
+#redirect-leaderboard:hover {
+  background-color: grey;
+  border: solid 4px white;
+  color: white;
+  padding: 15px 60px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  /* Move below start */
+  position: relative;
+  left: 179px;
+  bottom: 299px;
+}

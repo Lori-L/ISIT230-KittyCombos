@@ -1,0 +1,31 @@
+Timesheet:
+  13 Hours - Formatted general sections with HTML and CSS; light JS was included.
+  Added some CSS test cases for viewing Leaderboard and Gameplay
+  Added comments in HTML for clarity
+  Updated all instances of game to reference gameplay
+  Added functionality to the "redirect-gameplay" and "redirect-leaderboard" buttons to send users to the appropriate "pages" using additional JS
+  Separated JS into three sections with comments
+  Added some JS in preparation for database calls.
+
+Key:
+  - = to do
+  x = done
+
+Journal:
+  float: determines page section orientation
+  for Lori: document.getElementById("phrase").innerHTML will set the text of the phrase header
+
+To do (Jacob):
+  General:
+    x Update code to use proper 4 space indentation (Expected Delivery: Saturday, 11/12/2022)
+  Canvas:
+    x Add HTML Start Button 
+      - over canvas
+    x Add Restart Button
+    x Add Leaderboard Button
+  Leaderboard:
+    x Add HTML Header declaring leaderboard
+    - Add ordered list 
+      - that can pull from database (array for now)
+    x Add HTMl Play button to leaderboard
+    x Add CSS to auto-hide Leaderboard and show Gameplay
