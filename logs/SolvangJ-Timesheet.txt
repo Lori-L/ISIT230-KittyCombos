@@ -1,0 +1,45 @@
+Timesheet:
+  27 Hours - 
+  Formatted general sections with HTML and CSS; light JS was included.
+  Added some CSS test cases for viewing Leaderboard and Gameplay
+  Added comments in HTML for clarity
+  Updated all instances of game to reference gameplay
+  Added functionality to the "redirect-gameplay" and "redirect-leaderboard" buttons to send users to the appropriate "pages" using additional JS
+  Separated JS into three sections with comments
+  Added some JS in preparation for database calls.
+  Put more time than I should have into reworking the page centering to not cut off gameplay
+  Animated Start and Leaderboard buttons: Animated rest of forms
+  Added the ability to toggle animations for performance, legacy use, and accessability
+  Added Restart button that reloads the page from cache. I will do a proper reset once the game has an end function that I can use.
+  Began work on the API calls of the database. Currently learning how to convert promises and responses from JSON into actionable data, since our API of choice has no other way of accessing consistent image URLs
+
+Key:
+  - = to do
+  x = done
+
+Journal:
+  float: determines page section orientation
+  for Lori: document.getElementById("phrase").innerHTML will set the text of the phrase header
+
+To do (Jacob):
+  General:
+    x Update code to use proper 4 space indentation (Expected Delivery: Saturday, 11/12/2022)
+  Canvas:
+    x Add HTML Start Button 
+      x over canvas
+    x Add Restart Button
+    x Add Leaderboard Button
+      x Center button
+    - Center canvas on page
+    - Needs leaderboard state (Dependant on game end condition implimentation)
+    x Check if online
+      x if not, use preloaded images
+      - else, save unique square images from api
+        - load pictures onto tiles
+  Leaderboard:
+    x Add HTML Header declaring leaderboard
+    x Add ordered list 
+      x that can pull from database (array for now)
+    x Add HTMl Play button to leaderboard
+    x Add CSS to auto-hide Leaderboard and show Gameplay
+    - Needs to connect to external database
