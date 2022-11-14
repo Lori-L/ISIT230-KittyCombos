@@ -1,0 +1,7 @@
+Timesheet:
+  13.5 hours -
+  Created the Player and GameCanvas classes, as well as the game grid div. 
+  A GameCanvas object has a populateBoard() method that will fill the game grid with tile divs. Each tile div is given an element ID for future reference, as well as a random image. As this data is sufficient for the purposes of our project, easily modifiable, and stored entirely within the HTML, the GameTile class is no longer necessary. 
+  Tiles are currently moveable by clicking and dragging them. This is possible, but annoying to do on mobile devices. I will work on adding a method that can work by the user clicking (or tapping) on both tiles to be swapped.
+  When tiles are swapped, a check is in place to ensure that the tiles are adjacent. I have not yet added a check to ensure that the swap will result in a match. This will be done next week.
+  Matches of 3 will be detected and removed from the board by filling in a blank image. Next week, I will add methods to detect and remove matches of 4 and 5. I will also add a method that repopulates empty matched tiles, so the board does not empty as the player progresses through a game.
