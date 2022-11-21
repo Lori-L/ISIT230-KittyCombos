@@ -1,208 +1,217 @@
-html, body {
-    height: 100%;
-    width: 100%;
-    color: white;
-    background-color: black;
-    font-size: 24px;
+html,
+body {
+  height: 100%;
+  width: 100%;
+  color: white;
+  background-color: black;
+  font-size: 24px;
 }
 
 #gameplay-canvas {
-    border:2px solid black;
+  border: 2px solid black;
 }
 
 #grid {
-    height: 576px;
-    width: 576px;
-    display: flex;
-    flex-wrap: wrap;
-    background-color: black;
+  height: 576px;
+  width: 576px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: black;
 }
 
 #grid img {
-    height: 70px;
-    width: 70px;
-    border: 1px solid black;
+  height: 70px;
+  width: 70px;
+  border: 1px solid black;
 }
 
 /* Page formatting */
 
 #page {
-    margin: auto;
-    max-width: 650px;
-    height: 100%;
+  margin: auto;
+  max-width: 650px;
+  height: 100%;
 }
 
 #left-panel {
-    float: left;
-    width: 0%;
-    height: 100%;
+  float: left;
+  width: 0%;
+  height: 100%;
 }
 
 #mid-panel {
-    float: left;
-    width: 50%;
+  float: left;
+  width: 50%;
 }
 
 #right-panel {
-    float: right;
-    width: 0%;
-    height: 100%;
+  float: right;
+  width: 0%;
+  height: 100%;
 }
 
 #gameplay {
-    display: block;
+  display: block;
 }
 
 #leaderboard {
-    display: none;
+  display: none;
 }
 
 /* Making the CSS "Pretty" */
 #overlays {
-    position: relative;
-    bottom: 350px;
+  position: relative;
+  bottom: 350px;
 }
 
 #btn_start {
-    background-color: #4CAF50;
-    border: solid 2px white;
-    color: white;
-    padding: 15px 60px;
-    text-align: center;
-    display: inline-block;
-    font-size: 32px;
-    margin: 4px 2px;
-    position: absolute;
-    left: 185px;
+  background-color: #4caf50;
+  border: solid 2px white;
+  color: white;
+  padding: 15px 60px;
+  text-align: center;
+  display: inline-block;
+  font-size: 32px;
+  margin: 4px 2px;
+  position: absolute;
+  left: 185px;
 }
 
 #btn_start:hover {
-    background-color: gray;
-    border: solid 4px white;
-    color: white;
-    padding: 15px 60px;
-    text-align: center;
-    display: inline-block;
-    font-size: 32px;
-    margin: 2px 2px;
-    position: absolute;
-    left: 183px;
+  background-color: gray;
+  border: solid 4px white;
+  color: white;
+  padding: 15px 60px;
+  text-align: center;
+  display: inline-block;
+  font-size: 32px;
+  margin: 2px 2px;
+  position: absolute;
+  left: 183px;
 }
 
 #btn_restart {
-    background-color: #4CAF50;
-    border: solid 2px white;
-    color: white;
-    text-align: center;
-    display: none;
-    font-size: 16px;
-    margin: 4px 2px;
-    position: relative;
-    top: 350px;
+  background-color: #4caf50;
+  border: solid 2px white;
+  color: white;
+  text-align: center;
+  display: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  position: relative;
+  top: 350px;
 }
 
 #btn_restart:hover {
-    background-color: gray;
-    border: solid 4px white;
-    color: white;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
-    margin: 2px 2px;
-    position: relative;
+  background-color: gray;
+  border: solid 4px white;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  position: relative;
 }
 
 #btn_redirect-leaderboard {
-    background-color: blue;
-    border: solid 2px white;
-    color: white;
-    padding: 15px 60px;
-    text-align: center;
-    display: inline-block;
-    font-size: 32px;
-    margin: 4px 2px;
-    position: absolute;
-    top: 80px;
-    left: 130px;
+  background-color: blue;
+  border: solid 2px white;
+  color: white;
+  padding: 15px 60px;
+  text-align: center;
+  display: inline-block;
+  font-size: 32px;
+  margin: 4px 2px;
+  position: absolute;
+  top: 80px;
+  left: 130px;
 }
 
 #btn_redirect-leaderboard:hover {
-    background-color: grey;
-    border: solid 4px white;
-    color: white;
-    padding: 15px 60px;
-    text-align: center;
-    display: inline-block;
-    font-size: 32px;
-    margin: 4px 2px;
-    position: absolute;
-    top: 78px;
-    left: 128px;
+  background-color: grey;
+  border: solid 4px white;
+  color: white;
+  padding: 15px 60px;
+  text-align: center;
+  display: inline-block;
+  font-size: 32px;
+  margin: 4px 2px;
+  position: absolute;
+  top: 78px;
+  left: 128px;
 }
 
 #btn_redirect-gameplay {
-    background-color: #4CAF50;
-    border: solid 2px white;
-    color: white;
-    text-align: center;
-    display: block;
-    font-size: 16px;
-    margin: 4px 2px;
-    position: relative;
+  background-color: #4caf50;
+  border: solid 2px white;
+  color: white;
+  text-align: center;
+  display: block;
+  font-size: 16px;
+  margin: 4px 2px;
+  position: relative;
 }
 
 #btn_redirect-gameplay:hover {
-    background-color: gray;
-    border: solid 4px white;
-    color: white;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
-    margin: 2px 2px;
-    position: relative;
+  background-color: gray;
+  border: solid 4px white;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  position: relative;
 }
 
 #animation {
-    display: inline;
-    position: absolute;
-    top: 160px;
-    left: 225px;
+  display: inline;
+  position: absolute;
+  top: 160px;
+  left: 225px;
 }
 
-input[type=checkbox] {
-    vertical-align: middle;
-    position: relative;
-    left: 115px;
-    bottom: 28px;
+input[type="checkbox"] {
+  vertical-align: middle;
+  position: relative;
+  left: 115px;
+  bottom: 28px;
 }
 
 h1 {
-    position: relative;
-    top: 80px;
+  position: relative;
+  top: 80px;
 }
 
 @keyframes expandAndContract {
-    0%    {bottom: 10px; left: 240px; font-size: 10px;}
-    50%    {transform: rotate(15deg); bottom: 10px; left: 240px; font-size: 18px;}
+  0% {
+    bottom: 10px;
+    left: 240px;
+    font-size: 10px;
+  }
+  50% {
+    transform: rotate(15deg);
+    bottom: 10px;
+    left: 240px;
+    font-size: 18px;
+  }
 }
 
 #phrase {
-    color: yellow;
-    text-shadow: 1px 1px 5px white;
-    font-size: 10px;
-    position: relative;
-    bottom: 10px;
-    left: 240px;
-    animation-name: expandAndContract;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
+  color: yellow;
+  text-shadow: 1px 1px 5px white;
+  font-size: 10px;
+  position: relative;
+  bottom: 10px;
+  left: 240px;
+  animation-name: expandAndContract;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
 }
 
 #info {
-    color: white;
-    position: relative;
-    top: 610px;
-    left: 435px;
-    font-size: 16px;
+  color: white;
+  position: relative;
+  bottom: 40px;
+  left: 435px;
+  font-size: 16px;
 }
-
