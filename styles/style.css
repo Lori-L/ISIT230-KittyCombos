@@ -1,5 +1,4 @@
-html,
-body {
+html, body {
   height: 100%;
   width: 100%;
   color: white;
@@ -8,7 +7,7 @@ body {
 }
 
 #gameplay-canvas {
-  border: 2px solid black;
+  border:2px solid black;
 }
 
 #grid {
@@ -29,7 +28,7 @@ body {
 
 #page {
   margin: auto;
-  max-width: 650px;
+  width: 650px;
   height: 100%;
 }
 
@@ -58,6 +57,14 @@ body {
   display: none;
 }
 
+#score {
+float: right;
+}
+
+#turns {
+float: left;
+}
+
 /* Making the CSS "Pretty" */
 #overlays {
   position: relative;
@@ -65,7 +72,7 @@ body {
 }
 
 #btn_start {
-  background-color: #4caf50;
+  background-color: #4CAF50;
   border: solid 2px white;
   color: white;
   padding: 15px 60px;
@@ -91,7 +98,7 @@ body {
 }
 
 #btn_restart {
-  background-color: #4caf50;
+  background-color: #4CAF50;
   border: solid 2px white;
   color: white;
   text-align: center;
@@ -142,7 +149,7 @@ body {
 }
 
 #btn_redirect-gameplay {
-  background-color: #4caf50;
+  background-color: #4CAF50;
   border: solid 2px white;
   color: white;
   text-align: center;
@@ -170,7 +177,7 @@ body {
   left: 225px;
 }
 
-input[type="checkbox"] {
+input[type=checkbox] {
   vertical-align: middle;
   position: relative;
   left: 115px;
@@ -183,17 +190,8 @@ h1 {
 }
 
 @keyframes expandAndContract {
-  0% {
-    bottom: 10px;
-    left: 240px;
-    font-size: 10px;
-  }
-  50% {
-    transform: rotate(15deg);
-    bottom: 10px;
-    left: 240px;
-    font-size: 18px;
-  }
+  0%    {bottom: 10px; left: 240px; font-size: 10px;}
+  50%    {transform: rotate(15deg); bottom: 10px; left: 240px; font-size: 18px;}
 }
 
 #phrase {
@@ -208,10 +206,18 @@ h1 {
   animation-iteration-count: infinite;
 }
 
+#loading {
+  display: none;
+}
+
 #info {
   color: white;
   position: relative;
   bottom: 40px;
   left: 435px;
   font-size: 16px;
+}
+
+#ui {
+  color:black;
 }

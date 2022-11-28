@@ -16,7 +16,7 @@ function getTopScores() {
   });
 }
 
-// get the 16th score or the lowest score from the database
+// gets the 16th score or the lowest score from the database
 function getLowestHighScore() {
   axios.get("/score").then((response) => {
     const dataLength = response.data.length;
@@ -28,18 +28,43 @@ function getLowestHighScore() {
   });
 }
 
+
+function addScoreToLeaderboard(player) {
+  app.post("/score", (req, res) => {
+    fs.open("scores.txt", "a", 666, (e, id) => {
+      fs.writeFileSync(id, `${player.name},${player.score}\n`);
+      fs.closeSync(id, () => {
+        console.log("file updated");
+      });
+    });
+  });
+}
+
 // checks if the player has a high score
-function isNewHighScore(score) {
+function isNewHighScore(player) {
   const scoreToCompare = getLowestHighScore();
 
-  if (score > scoreToCompare) {
+  if (player.score > scoreToCompare) {
     // prompt the user to type in a name
-    // create a user with the name and the score
-    // add the use data to the db
+
+    player.name = // save the user input as the player name
+    // write the score to the db
+    addScoreToLeaderboard(player);
     // call getTopScores function and reload the db
+    getTopScores();
+
+       
+    
     // congratulate player
+
   }
 
+  if (player.score > player.highScore) {
+    // update players highscore
+    player.highScore = player.score;
+
+    // congratulate the player
+  }
   // if check if players score is greater than their previous high score
   // if it is update their high score and congratulate player
 }
