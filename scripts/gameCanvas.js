@@ -301,5 +301,12 @@ function dragEnd() {
           player.turnsLeft += 1;
           document.getElementById("turns").innerHTML = "Turns Left: " + player.turnsLeft.toString();
       }
+
+
+      // Gabriel's comment 
+    // when player.turnsLeft <= 0 then run my isNewHighScore function
+    // is newHighScore() should check if the player's score is on the leaderboard
+    // if it is a highscore the txt file and the leaderboard should be updated and 
+    // some kind of message should be sent to congratulate the user.
   }
 }

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Kitty Combos</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
 <body onLoad="pageLoad()">
@@ -32,7 +33,7 @@
                 <div id="overlays">
                     <button id="btn_start">Start</button>
                     <button id="btn_restart">Restart</button>
-                    <button id="btn_redirect-leaderboard">Leaderboard</button>
+                    <button id="btn_redirect-leaderboard" onclick="getTopScores()">Leaderboard</button>
                     <div id="animation">
                         <label>Animation
                             <input type="checkbox" checked="checked" onclick="toggleAnimations()">
@@ -79,6 +80,8 @@
     <script src="player.js"></script>
     <script src="gameCanvas.js"></script>
     <script src="script.js"></script>
+    <script src="database.js"></script>
+    <script src="require.js"></script>
 </body>
 
 </html>
