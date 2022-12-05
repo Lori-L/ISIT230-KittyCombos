@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Kitty Combos</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  </head>
+</head>
 
-  <body onLoad="pageLoad()">
+<body onLoad="pageLoad()">
     <div id="page">
       <h1>Kitty Combos</h1>
       <!-- Exists to center the middle content and as possible ad space -->
@@ -43,31 +44,64 @@
               </label>
             </div>
           </div>
+        <h1>Kitty Combos</h1>
+        <!-- Exists to center the middle content and as possible ad space -->
+        <div id="left-panel">
+
         </div>
-        <!-- Where scores are accessed and displayed -->
-        <div id="leaderboard">
-          <h2>Leaderboard</h2>
-          <ol id="leaderboard-list">
-            <li id="u0"></li>
-            <li id="u1"></li>
-            <li id="u2"></li>
-            <li id="u3"></li>
-            <li id="u4"></li>
-            <li id="u5"></li>
-            <li id="u6"></li>
-            <li id="u7"></li>
-            <li id="u8"></li>
-            <li id="u9"></li>
-            <li id="u10"></li>
-            <li id="u11"></li>
-            <li id="u12"></li>
-            <li id="u13"></li>
-            <li id="u14"></li>
-            <li id="u15"></li>
-          </ol>
-          <!-- Leaderboard Buttons -->
-          <button id="btn_redirect-gameplay">Play Game</button>
-          <!-- Considering idea for leaderboard refresh, but idk if it's worth the hassle to update documentation when people can just refresh the page and click leaderboard -->
+        <!-- Div holds the gameplay and leaderboards "Pages" -->
+        <div id="mid-panel">
+
+            <h2 id="phrase">Cat Related Phrase</h2>
+            <!-- Where the gameplay takes place -->
+            <div id="gameplay">
+                <br>
+                <div id="ui">
+                    <p id="score">Score: 0</p>
+                    <p id="turns">Turns Left: 15</p>
+                </div>
+                <div id="grid">
+                </div>
+                <!-- Grid Button overlays -->
+                <div id="overlays">
+                    <button id="btn_start">Start</button>
+                    <button id="btn_restart">Restart</button>
+                    <button id="btn_redirect-leaderboard" onclick="getTopScores()">Leaderboard</button>
+                    <div id="animation">
+                        <label>Animation
+                            <input type="checkbox" checked="checked" onclick="toggleAnimations()">
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- Where scores are accessed and displayed -->
+            <div id="leaderboard">
+                <h2>Leaderboard</h2>
+                <ol id="leaderboard-list">
+                    <li id="u0"></li>
+                    <li id="u1"></li>
+                    <li id="u2"></li>
+                    <li id="u3"></li>
+                    <li id="u4"></li>
+                    <li id="u5"></li>
+                    <li id="u6"></li>
+                    <li id="u7"></li>
+                    <li id="u8"></li>
+                    <li id="u9"></li>
+                    <li id="u10"></li>
+                    <li id="u11"></li>
+                    <li id="u12"></li>
+                    <li id="u13"></li>
+                    <li id="u14"></li>
+                    <li id="u15"></li>
+                </ol>
+                <!-- Leaderboard Buttons -->
+                <button id="btn_redirect-gameplay">Play Game</button>
+                <!-- Considering idea for leaderboard refresh, but idk if it's worth the hassle to update documentation when people can just refresh the page and click leaderboard -->
+            </div>
+            <div id="info">
+                <p>Human Systems 2022</p>
+            </div>
         </div>
         <div id="gameover">
           <h2>Game Over!</h2>
@@ -121,7 +155,8 @@
     <script src="player.js"></script>
     <script src="gameCanvas.js"></script>
     <script src="script.js"></script>
-    <script src="require.js"></script>
     <script src="database.js"></script>
-  </body>
+    <script src="require.js"></script>
+</body>
+
 </html>

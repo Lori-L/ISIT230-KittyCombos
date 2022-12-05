@@ -27,32 +27,29 @@ function getLowestHighScore() {
   });
 }
 
-
-// at end of game check if player score is a high score
-// if not do nothing
-// if it is a highscore prompt user to enter a name
-// once the name is entered, add the player to the .txt file (database)
-// and update the leaderboard
-
 // checks if the player has a high score
-function isNewHighScore(score) {
+function isNewHighScore(player) {
   const scoreToCompare = getLowestHighScore();
 
-  if (score > scoreToCompare) {
+  if (player.score > scoreToCompare) {
     // prompt the user to type in a name
+
     // save the user input as the player name
 
     addScoreToLeaderboard(player);
     // call getTopScores function and reload the db
     // getTopScores();
 
+
     // congratulate player
+
   }
+
 
   // may need to change parameter to accept a player object's highscore attribute
   if (player.score > player.highScore) {
-    player.highScore = player.score;
 
+    player.highScore = player.score;
     // congratulate the player
   }
 }
