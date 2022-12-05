@@ -1,6 +1,5 @@
 // get the top scores (up to 16 scores) from the database and display
 // the values on the leaderboard
-debugger;
 function getTopScores() {
   axios.get("/score").then((response) => {
     console.log(response);
@@ -28,13 +27,6 @@ function getLowestHighScore() {
   });
 }
 
-// posts score to db
-function addScoreToLeaderboard(player) {
-  axios.post("/score", {
-    name: player.name,
-    score: player.score,
-  });
-}
 
 // at end of game check if player score is a high score
 // if not do nothing

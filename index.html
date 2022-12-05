@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Kitty Combos</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
-    <script src="require.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
 
   <body onLoad="pageLoad()">
@@ -101,6 +101,7 @@
               id="btn_endGame-leaderboard"
               title="View Leaderboard"
               value="View Leaderboard"
+              onclick="getTopScores()"
             />
             <input type="button" id="btn_retry" title="Retry" value="Retry" />
           </div>
@@ -120,6 +121,7 @@
     <script src="player.js"></script>
     <script src="gameCanvas.js"></script>
     <script src="script.js"></script>
+    <script src="require.js"></script>
     <script src="database.js"></script>
   </body>
 </html>

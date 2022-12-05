@@ -192,7 +192,7 @@ async function loadCanvas() {
   // Resets the player's turn and score counters. Move to the play game button event handler. Occurs when the player finishes a game, then retries.
 
   // !!! When adding writing to user's files, will include a portion for finding and setting the player's high score. !!!
-  player.turnsLeft = 3;
+  player.turnsLeft = 15;
   player.score = 0;
   player.gameActive = true;
   player.gameStarted = false;
