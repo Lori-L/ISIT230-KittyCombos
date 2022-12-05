@@ -29,7 +29,7 @@ body {
 
 #page {
   margin: auto;
-  max-width: 650px;
+  width: 650px;
   height: 100%;
 }
 
@@ -56,6 +56,14 @@ body {
 
 #leaderboard {
   display: none;
+}
+
+#score {
+  float: right;
+}
+
+#turns {
+  float: left;
 }
 
 /* Making the CSS "Pretty" */
@@ -208,10 +216,34 @@ h1 {
   animation-iteration-count: infinite;
 }
 
+#loading {
+  display: none;
+}
+
+#gameover {
+  display: none;
+}
+
+#highScore {
+  display: none;
+}
+
+#newScore {
+  display: none;
+}
+
+#gameoverRedirects {
+  display: none;
+}
+
 #info {
   color: white;
   position: relative;
   bottom: 40px;
   left: 435px;
   font-size: 16px;
+}
+
+#ui {
+  color: black;
 }

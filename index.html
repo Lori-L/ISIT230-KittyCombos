@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Kitty Combos</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="require.js"></script>
   </head>
 
   <body onLoad="pageLoad()">
@@ -19,6 +19,10 @@
         <!-- Where the gameplay takes place -->
         <div id="gameplay">
           <br />
+          <div id="ui">
+            <p id="score">Score: 0</p>
+            <p id="turns">Turns Left: 15</p>
+          </div>
           <div id="grid"></div>
           <!-- Grid Button overlays -->
           <div id="overlays">
@@ -31,6 +35,7 @@
               <label
                 >Animation
                 <input
+                  id="animCheckbox"
                   type="checkbox"
                   checked="checked"
                   onclick="toggleAnimations()"
@@ -64,19 +69,57 @@
           <button id="btn_redirect-gameplay">Play Game</button>
           <!-- Considering idea for leaderboard refresh, but idk if it's worth the hassle to update documentation when people can just refresh the page and click leaderboard -->
         </div>
+        <div id="gameover">
+          <h2>Game Over!</h2>
+          <p id="finalScore">Score: 000,000</p>
+          <p id="newScore">Congratulations; you broke your last record!</p>
+          <div id="highScore">
+            <p>
+              You got a top score! Enter your name below to add your score to
+              the leaderboard:
+            </p>
+            <br />
+            <label>Name:</label>
+            <input
+              type="text"
+              id="name"
+              minlength="1"
+              maxlength="3"
+              value="AAA"
+            />
+            <input
+              type="button"
+              id="btn_submit-playerName"
+              title="Submit"
+              value="Submit"
+              onclick=""
+            />
+          </div>
+          <div id="gameoverRedirects">
+            <input
+              type="button"
+              id="btn_endGame-leaderboard"
+              title="View Leaderboard"
+              value="View Leaderboard"
+            />
+            <input type="button" id="btn_retry" title="Retry" value="Retry" />
+          </div>
+        </div>
         <div id="info">
           <p>Human Systems 2022</p>
         </div>
       </div>
       <!-- Exists to center the middle content and as possible ad space -->
-      <div id="right-panel"></div>
+      <div id="right-panel">
+        <p>test</p>
+      </div>
     </div>
 
+    <script src="cookies.js"></script>
     <script src="api.js"></script>
     <script src="player.js"></script>
     <script src="gameCanvas.js"></script>
     <script src="script.js"></script>
-    <script src="require.js"></script>
     <script src="database.js"></script>
   </body>
 </html>

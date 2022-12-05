@@ -85,7 +85,11 @@ class GameCanvas {
 
           console.log("Match found of size " + num.toString());
 
-          // Give the player points.
+          // Makes sure the player doesn't get points for matches found while the board is generating.
+          if (player.gameStarted) {
+            // Give the player points.
+            this.addScore(num);
+          }
         }
       }
     }
@@ -113,10 +117,40 @@ class GameCanvas {
 
           console.log("Match found of size " + num.toString());
 
-          // Give the player points.
+          // Makes sure the player doesn't get points for matches found while the board is generating.
+          if (player.gameStarted) {
+            // Give the player points.
+            this.addScore(num);
+          }
         }
       }
     }
+  }
+
+  addScore(num) {
+    // Switch statement to determine how many points the player should receive based on how large their match was
+    switch (num) {
+      case 5:
+        // Gives 15 points and two extra turns when the player matches 5 tiles.
+        player.score += 15;
+        player.turnsLeft += 2;
+        document.getElementById("turns").innerHTML =
+          "Turns Left: " + player.turnsLeft.toString();
+        break;
+      case 4:
+        // Gives 10 points and one extra turn when the player matches 4 tiles.
+        player.score += 10;
+        player.turnsLeft += 1;
+        document.getElementById("turns").innerHTML =
+          "Turns Left: " + player.turnsLeft.toString();
+        break;
+      default:
+        // Gives 5 points when the player matches 3 tiles.
+        player.score += 5;
+    }
+    console.log("Score: " + player.score);
+    document.getElementById("score").innerHTML =
+      "Score: " + player.score.toString();
   }
 
   // Checks to see if all tiles have the same image.
@@ -200,6 +234,11 @@ class GameCanvas {
 function dragStart() {
   // The current tile is the one that was clicked on for the drag
   currTile = this;
+
+  // Sets the game as having started once the player clicks on any tile for the first time. The player can now earn points for matches found.
+  if (!player.gameStarted) {
+    player.gameStarted = true;
+  }
 }
 
 // Moving the mouse after the initial click. Not currently used, but left for possible later additions.
@@ -225,8 +264,6 @@ function dragDrop() {
 
 // What happens after the tile dragging process has ended (tile swap)
 function dragEnd() {
-  // Decrease the player's turn count when they make a move.
-
   // Validity check start:
 
   // Does not allow the player to swap with a blank tile.
@@ -237,7 +274,7 @@ function dragEnd() {
     return;
   }
 
-  // tile id set in populateBoard(). id="1-7" -> ["1", "7"] for easy comparison between the current and other tiles
+  // tile id set in populateBoard(). id="1-7" -> [1, 7] for easy comparison between the current and other tiles
   let currCoords = currTile.id.split("-");
   let r1 = parseInt(currCoords[0]);
   let c1 = parseInt(currCoords[1]);
@@ -263,6 +300,11 @@ function dragEnd() {
     currTile.src = otherImg;
     otherTile.src = currImg;
 
+    // Decrease the player's turn count when they make a move.
+    player.turnsLeft -= 1;
+    document.getElementById("turns").innerHTML =
+      "Turns Left: " + player.turnsLeft.toString();
+
     // Returns the tiles back to their original locations if the swap did not result in a match.
     if (!board.checkValid()) {
       console.log("Invalid swap - does not create a match");
@@ -272,6 +314,11 @@ function dragEnd() {
 
       currTile.src = otherImg;
       otherTile.src = currImg;
+
+      // Reset the player's turn count if their move was not valid.
+      player.turnsLeft += 1;
+      document.getElementById("turns").innerHTML =
+        "Turns Left: " + player.turnsLeft.toString();
     }
   }
 }
