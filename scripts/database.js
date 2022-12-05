@@ -1,4 +1,3 @@
-
 // get the top scores (up to 16 scores) from the database and display
 // the values on the leaderboard
 function getTopScores() {
@@ -28,18 +27,6 @@ function getLowestHighScore() {
   });
 }
 
-
-function addScoreToLeaderboard(player) {
-  app.post("/score", (req, res) => {
-    fs.open("scores.txt", "a", 666, (e, id) => {
-      fs.writeFileSync(id, `${player.name},${player.score}\n`);
-      fs.closeSync(id, () => {
-        console.log("file updated");
-      });
-    });
-  });
-}
-
 // checks if the player has a high score
 function isNewHighScore(player) {
   const scoreToCompare = getLowestHighScore();
@@ -47,24 +34,22 @@ function isNewHighScore(player) {
   if (player.score > scoreToCompare) {
     // prompt the user to type in a name
 
-    player.name = // save the user input as the player name
-    // write the score to the db
+    // save the user input as the player name
+
     addScoreToLeaderboard(player);
     // call getTopScores function and reload the db
-    getTopScores();
+    // getTopScores();
 
-       
-    
+
     // congratulate player
 
   }
 
-  if (player.score > player.highScore) {
-    // update players highscore
-    player.highScore = player.score;
 
+  // may need to change parameter to accept a player object's highscore attribute
+  if (player.score > player.highScore) {
+
+    player.highScore = player.score;
     // congratulate the player
   }
-  // if check if players score is greater than their previous high score
-  // if it is update their high score and congratulate player
 }

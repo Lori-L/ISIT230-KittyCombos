@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
   color: white;
@@ -7,7 +8,7 @@ html, body {
 }
 
 #gameplay-canvas {
-  border:2px solid black;
+  border: 2px solid black;
 }
 
 #grid {
@@ -58,11 +59,11 @@ html, body {
 }
 
 #score {
-float: right;
+  float: right;
 }
 
 #turns {
-float: left;
+  float: left;
 }
 
 /* Making the CSS "Pretty" */
@@ -72,7 +73,7 @@ float: left;
 }
 
 #btn_start {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   border: solid 2px white;
   color: white;
   padding: 15px 60px;
@@ -98,7 +99,7 @@ float: left;
 }
 
 #btn_restart {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   border: solid 2px white;
   color: white;
   text-align: center;
@@ -149,7 +150,7 @@ float: left;
 }
 
 #btn_redirect-gameplay {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   border: solid 2px white;
   color: white;
   text-align: center;
@@ -177,7 +178,7 @@ float: left;
   left: 225px;
 }
 
-input[type=checkbox] {
+input[type="checkbox"] {
   vertical-align: middle;
   position: relative;
   left: 115px;
@@ -190,8 +191,17 @@ h1 {
 }
 
 @keyframes expandAndContract {
-  0%    {bottom: 10px; left: 240px; font-size: 10px;}
-  50%    {transform: rotate(15deg); bottom: 10px; left: 240px; font-size: 18px;}
+  0% {
+    bottom: 10px;
+    left: 240px;
+    font-size: 10px;
+  }
+  50% {
+    transform: rotate(15deg);
+    bottom: 10px;
+    left: 240px;
+    font-size: 18px;
+  }
 }
 
 #phrase {
@@ -210,6 +220,22 @@ h1 {
   display: none;
 }
 
+#gameover {
+  display: none;
+}
+
+#highScore {
+  display: none;
+}
+
+#newScore {
+  display: none;
+}
+
+#gameoverRedirects {
+  display: none;
+}
+
 #info {
   color: white;
   position: relative;
@@ -219,5 +245,5 @@ h1 {
 }
 
 #ui {
-  color:black;
+  color: black;
 }
