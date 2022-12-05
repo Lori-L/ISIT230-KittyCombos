@@ -1,3 +1,4 @@
+<!--  -->
 <!DOCTYPE html>
 <html>
 
@@ -11,39 +12,6 @@
 
 <body onLoad="pageLoad()">
     <div id="page">
-      <h1>Kitty Combos</h1>
-      <!-- Exists to center the middle content and as possible ad space -->
-      <div id="left-panel"></div>
-      <!-- Div holds the gameplay and leaderboards "Pages" -->
-      <div id="mid-panel">
-        <h2 id="phrase">Cat Related Phrase</h2>
-        <!-- Where the gameplay takes place -->
-        <div id="gameplay">
-          <br />
-          <div id="ui">
-            <p id="score">Score: 0</p>
-            <p id="turns">Turns Left: 15</p>
-          </div>
-          <div id="grid"></div>
-          <!-- Grid Button overlays -->
-          <div id="overlays">
-            <button id="btn_start">Start</button>
-            <button id="btn_restart">Restart</button>
-            <button id="btn_redirect-leaderboard" onclick="getTopScores()">
-              Leaderboard
-            </button>
-            <div id="animation">
-              <label
-                >Animation
-                <input
-                  id="animCheckbox"
-                  type="checkbox"
-                  checked="checked"
-                  onclick="toggleAnimations()"
-                />
-              </label>
-            </div>
-          </div>
         <h1>Kitty Combos</h1>
         <!-- Exists to center the middle content and as possible ad space -->
         <div id="left-panel">
@@ -66,10 +34,10 @@
                 <div id="overlays">
                     <button id="btn_start">Start</button>
                     <button id="btn_restart">Restart</button>
-                    <button id="btn_redirect-leaderboard" onclick="getTopScores()">Leaderboard</button>
+                    <button id="btn_redirect-leaderboard">Leaderboard</button>
                     <div id="animation">
                         <label>Animation
-                            <input type="checkbox" checked="checked" onclick="toggleAnimations()">
+                            <input id="animCheckbox" type="checkbox" checked="checked" onclick="toggleAnimations()">
                         </label>
                     </div>
                 </div>
@@ -99,55 +67,30 @@
                 <button id="btn_redirect-gameplay">Play Game</button>
                 <!-- Considering idea for leaderboard refresh, but idk if it's worth the hassle to update documentation when people can just refresh the page and click leaderboard -->
             </div>
+            <div id="gameover">
+                <h2>Game Over!</h2>
+                <p id="finalScore">Score: 000,000</p>
+                <p id="newScore">Congratulations; you broke your last record!</p>
+                <div id="highScore">
+                    <p>You got a top score! Enter your name below to add your score to the leaderboard:</p>
+                    <br />
+                    <label>Name:</label>
+                    <input type="text" id="name" minlength="1" maxlength="3" value="AAA">
+                    <input type="button" id="btn_submit-playerName" title="Submit" value="Submit">
+                </div>
+                <div id="gameoverRedirects">
+                    <input type="button" id="btn_endGame-leaderboard" title="View Leaderboard" value="View Leaderboard">
+                    <input type="button" id="btn_retry" title="Retry" value="Retry">
+                </div>
+            </div>
             <div id="info">
                 <p>Human Systems 2022</p>
             </div>
         </div>
-        <div id="gameover">
-          <h2>Game Over!</h2>
-          <p id="finalScore">Score: 000,000</p>
-          <p id="newScore">Congratulations; you broke your last record!</p>
-          <div id="highScore">
-            <p>
-              You got a top score! Enter your name below to add your score to
-              the leaderboard:
-            </p>
-            <br />
-            <label>Name:</label>
-            <input
-              type="text"
-              id="name"
-              minlength="1"
-              maxlength="3"
-              value="AAA"
-            />
-            <input
-              type="button"
-              id="btn_submit-playerName"
-              title="Submit"
-              value="Submit"
-              onclick=""
-            />
-          </div>
-          <div id="gameoverRedirects">
-            <input
-              type="button"
-              id="btn_endGame-leaderboard"
-              title="View Leaderboard"
-              value="View Leaderboard"
-              onclick="getTopScores()"
-            />
-            <input type="button" id="btn_retry" title="Retry" value="Retry" />
-          </div>
+        <!-- Exists to center the middle content and as possible ad space -->
+        <div id="right-panel">
+            
         </div>
-        <div id="info">
-          <p>Human Systems 2022</p>
-        </div>
-      </div>
-      <!-- Exists to center the middle content and as possible ad space -->
-      <div id="right-panel">
-        <p>test</p>
-      </div>
     </div>
 
     <script src="cookies.js"></script>
