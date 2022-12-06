@@ -234,10 +234,46 @@ h1 {
 
 #btn_endGame-leaderboard {
   display: none;
+  background-color: blue;
+  border: solid 2px white;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  position: relative;
+}
+
+#btn_endGame-leaderboard:hover {
+  background-color: grey;
+  border: solid 4px white;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  position: relative;
 }
 
 #btn_retry {
   display: none;
+  background-color: #4caf50;
+  border: solid 2px white;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  position: relative;
+}
+
+#btn_retry:hover {
+  background-color: gray;
+  border: solid 4px white;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  position: relative;
 }
 
 #info {

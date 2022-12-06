@@ -35,7 +35,6 @@ app.get("/score", (req, res) => {
   });
 });
 
-
 app.post("/score", (req, res) => {
   fs.open("scores.txt", "a", 666, (e, id) => {
     fs.writeFileSync(id, `${req.body.name},${req.body.score}\n`);
@@ -44,9 +43,6 @@ app.post("/score", (req, res) => {
     });
   });
 });
-
-
-
 
 app.listen(3000, "127.0.0.1", () => {
   console.log("Server is listening on Socket 127.0.0.1:3000");

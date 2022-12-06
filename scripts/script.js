@@ -81,7 +81,7 @@ function pageLoad() {
   changePhrase();
 }
 
-function loadLeaderboard(){
+function loadLeaderboard() {
   leaderboard.style.display = "block";
   getTopScores();
   changePhrase();
@@ -170,7 +170,8 @@ function gameOver() {
       document.getElementById("highScore").style.display = "block";
     } else {
       // Buttons that appear when the player's score is not a high score
-      document.getElementById("btn_endGame-leaderboard").style.display = "block";
+      document.getElementById("btn_endGame-leaderboard").style.display =
+        "block";
       document.getElementById("btn_retry").style.display = "block";
     }
     document.getElementById("finalScore").innerHTML =

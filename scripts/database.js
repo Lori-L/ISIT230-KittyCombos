@@ -2,7 +2,7 @@
 // the values on the leaderboard
 function getTopScores() {
   axios.get("/score").then((response) => {
-    console.log(response);
+    // loop through each index of the response and if there is a value display it on the database
     for (let i = 0; i < 16; i++) {
       if (!response.data[i]) {
         document.getElementById("u" + i).textContent = "--";
@@ -20,23 +20,18 @@ function getLowestHighScore() {
   return axios.get("/score").then((response) => {
     const dataLength = response.data.length;
 
-    if (dataLength < 16){
+    if (dataLength < 16) {
       return 0;
     }
-    const lowestScoreToCompare = parseInt(response.data[dataLength - 1][1]);
-    x = lowestScoreToCompare;
-    console.log(response.data[dataLength - 1]);
-    console.log(lowestScoreToCompare);
 
-    return lowestScoreToCompare;
+    return parseInt(response.data[15][1]);
   });
 }
-
 
 // posts score to db
 function addScoreToLeaderboard() {
   axios.post("/score", {
     name: player.name,
-    score: player.score
+    score: player.score,
   });
 }
