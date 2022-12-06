@@ -17,9 +17,14 @@ function getTopScores() {
 
 // gets the 16th score or the lowest score from the database
 function getLowestHighScore() {
-  axios.get("/score").then((response) => {
+  return axios.get("/score").then((response) => {
     const dataLength = response.data.length;
+
+    if (dataLength < 16){
+      return 0;
+    }
     const lowestScoreToCompare = parseInt(response.data[dataLength - 1][1]);
+    x = lowestScoreToCompare;
     console.log(response.data[dataLength - 1]);
     console.log(lowestScoreToCompare);
 
@@ -27,29 +32,11 @@ function getLowestHighScore() {
   });
 }
 
-// checks if the player has a high score
-function isNewHighScore(player) {
-  const scoreToCompare = getLowestHighScore();
 
-  if (player.score > scoreToCompare) {
-    // prompt the user to type in a name
-
-    // save the user input as the player name
-
-    addScoreToLeaderboard(player);
-    // call getTopScores function and reload the db
-    // getTopScores();
-
-
-    // congratulate player
-
-  }
-
-
-  // may need to change parameter to accept a player object's highscore attribute
-  if (player.score > player.highScore) {
-
-    player.highScore = player.score;
-    // congratulate the player
-  }
+// posts score to db
+function addScoreToLeaderboard() {
+  axios.post("/score", {
+    name: player.name,
+    score: player.score
+  });
 }

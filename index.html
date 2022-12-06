@@ -75,14 +75,12 @@
                     <p>You got a top score! Enter your name below to add your score to the leaderboard:</p>
                     <br />
                     <label>Name:</label>
-                    <input type="text" id="name" minlength="1" maxlength="3" value="AAA">
-                    <input type="button" id="btn_submit-playerName" title="Submit" value="Submit">
+                    <input type="text" id="name" minlength="3" maxlength="3" required placeholder="AAA">
+                    <input type="button" id="btn_submit-playerName" title="Submit" value="Submit and View Leaderboard">
                 </div>
-                <div id="gameoverRedirects">
-                    <input type="button" id="btn_endGame-leaderboard" title="View Leaderboard" value="View Leaderboard">
-                    <input type="button" id="btn_retry" title="Retry" value="Retry">
-                </div>
+                <input type="button" id="btn_endGame-leaderboard" title="View Leaderboard" value="View Leaderboard">
             </div>
+            <input type="button" id="btn_retry" title="Retry" value="Retry">
             <div id="info">
                 <p>Human Systems 2022</p>
             </div>
@@ -93,6 +91,7 @@
         </div>
     </div>
 
+    <script src="database.js"></script>
     <script src="cookies.js"></script>
     <script src="api.js"></script>
     <script src="player.js"></script>

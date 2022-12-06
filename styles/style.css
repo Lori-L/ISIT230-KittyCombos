@@ -232,7 +232,11 @@ h1 {
   display: none;
 }
 
-#gameoverRedirects {
+#btn_endGame-leaderboard {
+  display: none;
+}
+
+#btn_retry {
   display: none;
 }
 

@@ -35,16 +35,16 @@ app.get("/score", (req, res) => {
   });
 });
 
-function addScoreToLeaderboard(score) {
-  app.post("/score", (req, res) => {
-    fs.open("scores.txt", "a", 666, (e, id) => {
-      fs.writeFileSync(id, `${req.body.name},${req.body.score}\n`);
-      fs.closeSync(id, () => {
-        console.log("file updated");
-      });
+
+app.post("/score", (req, res) => {
+  fs.open("scores.txt", "a", 666, (e, id) => {
+    fs.writeFileSync(id, `${req.body.name},${req.body.score}\n`);
+    fs.closeSync(id, () => {
+      console.log("file updated");
     });
   });
-}
+});
+
 
 
 
