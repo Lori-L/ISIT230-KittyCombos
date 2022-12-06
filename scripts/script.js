@@ -27,8 +27,7 @@ document
   .getElementById("btn_redirect-leaderboard")
   .addEventListener("click", () => {
     gameplay.style.display = "none";
-    leaderboard.style.display = "block";
-    changePhrase();
+    loadLeaderboard();
   });
 document
   .getElementById("btn_redirect-gameplay")
@@ -41,8 +40,7 @@ document
   .getElementById("btn_endGame-leaderboard")
   .addEventListener("click", () => {
     document.getElementById("gameover").style.display = "none";
-    leaderboard.style.display = "block";
-    changePhrase();
+    loadLeaderboard();
   });
 
 // Listens for start button press and reformats the page accordingly
@@ -69,13 +67,23 @@ document
   .getElementById("btn_submit-playerName")
   .addEventListener("click", () => {
     console.log("test");
-    player.name = document.getElementById("name").value;
-    addScoreToLeaderboard(player)();
+    player.name = document.getElementById("name").value.toUpperCase();
+    addScoreToLeaderboard();
+    loadLeaderboard();
+    document.getElementById("gameover").style.display = "none";
+    document.getElementById("btn_retry").style.display = "block";
+    document.getElementById("btn_redirect-gameplay").style.display = "none";
   });
 
 // FUNCTIONS
 
 function pageLoad() {
+  changePhrase();
+}
+
+function loadLeaderboard() {
+  leaderboard.style.display = "block";
+  getTopScores();
   changePhrase();
 }
 
@@ -107,23 +115,24 @@ function toggleAnimations() {
   }
 }
 
+// Checks for and uses existing cookies, and sets default cookie values if they do not exist.
 function useCookies() {
-  //Sets the player's highScore value to the cookie highScore value if it already exists. If it doesn't, sets it to 0 by default
+  // Sets the player's highScore value to the cookie highScore value if it already exists. If it doesn't, sets it to 0 by default
   if (checkCookie("highScore", "0")) {
     player.highScore = Number(getCookie("highScore"));
     console.log("highScore cookie: " + getCookie("highScore"));
   }
 
-  //Sets the player's animation preference value to the saved cookie preference if it exists. If it doesn't sets it to true by default.
+  // Sets the player's animation preference value to the saved cookie preference if it exists. If it doesn't sets it to true by default.
   if (checkCookie("letAnim", "true")) {
-    //Used to interpret if the cookie value is true or false, since the cookie is a string
+    // Used to interpret if the cookie value is true or false, since the cookie is a string
     let isTrue = getCookie("letAnim") === "true";
 
-    //Sets the player's letAnim value to the saved cookie value
+    // Sets the player's letAnim value to the saved cookie value
     player.letAnim = isTrue;
     console.log("letAnim cookie: " + getCookie("letAnim"));
 
-    //Sets the animation setting accordingly
+    // Sets the animation setting accordingly
     if (player.letAnim) {
       document.getElementById("phrase").style.animationIterationCount =
         "infinite";
@@ -134,34 +143,40 @@ function useCookies() {
   }
 }
 
-//Instantly deletes all cookies by setting a negative expiration timer. Debugging tool.
+// Instantly deletes all cookies by setting a negative expiration timer. Debugging tool.
 function delCookies() {
   document.cookie =
     "highScore=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   document.cookie = "letAnim=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
 
-//OCCURS WHEN THE GAME ENDS
+// Occurs when player's turn count reaches 0. Hides the gameplay div and shows the game over screen instead.
 function gameOver() {
   document.getElementById("gameplay").style.display = "none";
+  document.getElementById("btn_redirect-gameplay").style.display = "none";
   document.getElementById("gameover").style.display = "block";
   if (player.score > player.highScore) {
-    //If the player got a high score, the highscore message will display and their highScore cookie will be updated.
+    // If the player got a high score, the highscore message will display and their highScore cookie will be updated.
     document.getElementById("newScore").style.display = "block";
     setCookie("highScore", player.score.toString());
   }
 
-  // !!! PLACEHOLDER !!! MEANT TO SHOW IF THE PLAYER GOT A TOP SCORE, NOT A HIGH SCORE
-  if (player.score > player.highScore) {
-    //If the player got a top score, the name collection field will display.
-    document.getElementById("highScore").style.display = "block";
-    setCookie("highScore", player.score.toString());
-  } else {
-    //Buttons that appear when the player's score is not a high score
-    document.getElementById("gameoverRedirects").style.display = "block";
-  }
-  document.getElementById("finalScore").innerHTML =
-    "Score: " + player.score.toString();
+  // Uses promise from the database
+  getLowestHighScore().then((lowScore) => {
+    console.log("getLowestHighScore: " + lowScore);
+
+    if (player.score > lowScore) {
+      // If the player got a top score, the name collection field will display.
+      document.getElementById("highScore").style.display = "block";
+    } else {
+      // Buttons that appear when the player's score is not a high score
+      document.getElementById("btn_endGame-leaderboard").style.display =
+        "block";
+      document.getElementById("btn_retry").style.display = "block";
+    }
+    document.getElementById("finalScore").innerHTML =
+      "Score: " + player.score.toString();
+  });
 }
 
 async function loadCanvas() {
@@ -189,13 +204,8 @@ async function loadCanvas() {
     }
   }
 
-  // Resets the player's turn and score counters. Move to the play game button event handler. Occurs when the player finishes a game, then retries.
-
-  // !!! When adding writing to user's files, will include a portion for finding and setting the player's high score. !!!
+  //Sets player's turn count
   player.turnsLeft = 15;
-  player.score = 0;
-  player.gameActive = true;
-  player.gameStarted = false;
   document.getElementById("turns").innerHTML =
     "Turns Left: " + player.turnsLeft.toString();
 

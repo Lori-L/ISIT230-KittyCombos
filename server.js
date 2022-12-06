@@ -35,18 +35,14 @@ app.get("/score", (req, res) => {
   });
 });
 
-function addScoreToLeaderboard(score) {
-  app.post("/score", (req, res) => {
-    fs.open("scores.txt", "a", 666, (e, id) => {
-      fs.writeFileSync(id, `${req.body.name},${req.body.score}\n`);
-      fs.closeSync(id, () => {
-        console.log("file updated");
-      });
+app.post("/score", (req, res) => {
+  fs.open("scores.txt", "a", 666, (e, id) => {
+    fs.writeFileSync(id, `${req.body.name},${req.body.score}\n`);
+    fs.closeSync(id, () => {
+      console.log("file updated");
     });
   });
-}
-
-
+});
 
 app.listen(3000, "127.0.0.1", () => {
   console.log("Server is listening on Socket 127.0.0.1:3000");

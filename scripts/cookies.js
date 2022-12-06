@@ -35,7 +35,7 @@ function checkCookie(cname, defaultVal) {
 
   //Returns true if there is a preexisting cookie
   if (cookie != "") {
-   return true;
+  return true;
   } 
   //Sets the cookie to the default value and returns false if there is no preexisting cookie
   else {
