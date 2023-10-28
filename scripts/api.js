@@ -12,23 +12,23 @@ async function fetchJSON(url) {
       do {
           res = await fetch(url); // Wait for api
           imageData = await res.json(); // Wait for JSON
-          console.log(i + ' https://cataas.com' + imageData.url); // Log loaded url
+          console.log(i + ' https://cataas.com/cat/' + imageData._id); // Log loaded url
           if (imageData.mimetype != 'image/gif') { // If image is not a gif
               switch(i) { // Set each image based on iteration
                   case 0:
-                      image.img0 = 'https://cataas.com' + imageData.url;
+                      image.img0 = 'https://cataas.com/cat/' + imageData._id;
                       break;
                   case 1:
-                      image.img1 = 'https://cataas.com' + imageData.url;
+                      image.img1 = 'https://cataas.com/cat/' + imageData._id;
                       break;
                   case 2:
-                      image.img2 = 'https://cataas.com' + imageData.url;
+                      image.img2 = 'https://cataas.com/cat/' + imageData._id;
                       break;
                   case 3:
-                      image.img3 = 'https://cataas.com' + imageData.url;
+                      image.img3 = 'https://cataas.com/cat/' + imageData._id;
                       break;
                   case 4:
-                      image.img4 = 'https://cataas.com' + imageData.url;
+                      image.img4 = 'https://cataas.com/cat/' + imageData._id;
                       break;
               }
               i++; // Iterate

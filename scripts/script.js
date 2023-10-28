@@ -181,7 +181,7 @@ function gameOver() {
 
 async function loadCanvas() {
   // Awaits JSON and images
-  var obj = await fetchJSON("https://cataas.com/cat?json=true&type=sq");
+    var obj = await fetchJSON("https://cataas.com/cat?json=true&type=square");
 
   // Sets the value of each image in the object to the board array
   for (let n = 0; n < 5; n++) {
