@@ -5,6 +5,7 @@ const path = require("path");
 const fs = require("fs");
 const readline = require("readline");
 const { stringify } = require("querystring");
+const PORT = process.env.PORT || 3000;
 
 app.use(express.static("./styles"));
 app.use(express.static("./images"));
@@ -44,6 +45,11 @@ app.post("/score", (req, res) => {
   });
 });
 
-app.listen(3000, "127.0.0.1", () => {
-  console.log("Server is listening on Socket 127.0.0.1:3000");
+//app.listen(3000, "127.0.0.1", () => {
+//  console.log("Server is listening on Socket 127.0.0.1:3000");
+//});
+
+//Changing port for deployability
+app.listen(PORT, "0.0.0.0", () => {
+  console.log("server is listening on port " + PORT);
 });
